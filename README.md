@@ -1,5 +1,7 @@
 # internetOfBuildingsWebApp
 
+A web app for geospatial data visualisation for the Internet Of Buildings 2021, IAAC.
+
 ## Getting Started
 
 These instructions will give you a copy of the project up and running on
@@ -27,11 +29,11 @@ Open a terminal
 
 Install modules
 
-    `npm install`
+    npm install
 
 To start a local development server
 
-    `npm start`
+    npm start
 
 
 ## Versioning
