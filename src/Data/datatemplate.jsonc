@@ -1,0 +1,179 @@
+{
+  "group": "group name", 
+  "icon": "image_id_in_shared_folder",
+  "proposal":{
+    "description":"text",
+    "image": "image_id_in_shared_folder",
+    "video":"video_url"
+  },
+  "methodology": {
+    "description":"text",
+    "image": "image_id_in_shared_folder",
+    "video":"video_url"
+  },
+  "challenge":{
+    "description":"text",
+    "image": "image_id_in_shared_folder",
+    "video":"video_url"
+  },
+  "layers": [
+    {
+      "name": "layer name",
+      "sublayers": [
+        {
+          "name": "3D_Buildings", //<layer name>
+          "mapID": "mapbox.mapbox-streets-v8", //<map id provided by mapbox>
+          "mapboxSrc": [
+            "building"
+          ], //<mapbox tileset source - provided in the tileset page>    
+          "type": "polygon", //<polygon/point/lineString/raster>
+          "representation": "3D", //<3D/2D>
+          "source": "https://www.openstreetmap.org", //<provide the source of the data if it is not generated>    
+          "scale": "detailed", //<large/detailed> zoom level to zoom the map when layer is activated>       
+          "units": "N/A", //<string to represent the units. If not applicable type "N/A">
+          "description": "3D buildings coloured by height", //<layer's description -text>
+          "interpolation": true, //<true/false> true: if we want gradient, false: if we want discrete stops 
+          "paint": {
+            "property": "height", //<property to colour by>
+            "stops": [
+              [
+                5,
+                "#2c003e" //hex colour code - e.g., https://www.google.com/search?q=color+picker
+              ],
+              [
+                15,
+                "#512b58"
+              ],
+              [
+                25,
+                "#ffa372"
+              ],
+              [
+                100,
+                "#ea9085"
+              ]
+            ],
+            //<applicable for 3D only>
+            "extrusion-height": "height", //<property to extrude by>            
+            "extrusion-opacity": 1 //<opacity of the visualisation>
+          },
+          "legend": [
+            {
+              "color": "#2c003e", //hex colour code - e.g., https://www.google.com/search?q=color+picker
+              "stop": "5"
+            },
+            {
+              "color": "#512b58",
+              "stop": "15"
+            },
+            {
+              "color": "#ffa372",
+              "stop": "25"
+            },
+            {
+              "color": "#ea9085",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, //<true/false> 
+            "text": "my_text_goes_here"
+          },
+          "image": "image_id_in_shared_folder" //<if there is none just type false>
+        },
+        {
+          "name": "sublayer name", //<layer name>
+          "mapID": "username.5y2q4o9h", //<map id provided by mapbox>
+          "mapboxSrc": [
+            "mapboxSourceID"
+          ],
+          "type": "polygon", //<polygon/point/lineString/raster>
+          "representation": "2D", //<3D/2D>      
+          "source": "http://www.webpage.com", //<provide the source of the data if it is not generated>    
+          "scale": "detailed", //<large/detailed> zoom level to zoom the map when layer is activated>            
+          "units": "meters (m)", //<string to repesent the units. If not applicable type "N/A">
+          "description": "LayerDescription", //<layer's description - text>
+          "interpolation": true, //<true/false> true: if we want gradient, false: if we want discrete stops 
+          "paint": {
+            "property": "my_property", //<property to colour by>
+            "stops": [
+              [
+                5, //<stop 1 value (upper limit)>
+                "#2c003e" //hex colour code - e.g., https://www.google.com/search?q=color+picker
+              ],
+              [
+                15,
+                "#512b58"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#2c003e", //hex colour code - e.g., https://www.google.com/search?q=color+picker
+              "stop": "from-to"
+            },
+            {
+              "color": "#512b58",
+              "stop": "from-to"
+            }
+          ],
+          "interactable": {
+            "status": true, //<true/false> 
+            "text": "my_text_goes_here"
+          },
+          "image": "image_id_in_shared_folder" //<if there is none just type false>
+        }
+      ]
+    },
+    {
+      "name": "layer name",
+      "sublayers": [
+        {
+          "name": "sublayer name", //<layer name>
+          "mapID": "username.5y2q4o9h", //<map id provided by mapbox>
+          "mapboxSrc": [
+            "mapboxSourceID"
+          ],
+          "type": "polygon", //<polygon/point/lineString/raster>
+          "representation": "2D", //<3D/2D>      
+          "source": "http://www.webpage.com", //<provide the source of the data if it is not generated>    
+          "scale": "detailed", //<large/detailed> zoom level to zoom the map when layer is activated>            
+          "units": "meters (m)", //<string to repesent the units. If not applicable type "N/A">
+          "description": "LayerDescription", //<layer's description - text>
+          "interpolation": false, //<true/false> true: if we want gradient, false: if we want discrete stops 
+          "paint": {
+            "property": "my_property", //<property to colour by>
+            "stops": [
+              [
+                "value 1", // values can be also text for categorical data
+                "#2c003e" //hex colour code - e.g., https://www.google.com/search?q=color+picker
+              ],
+              [
+                "value 2",
+                "#512b58"
+              ],
+              [
+                "value 3",
+                "#ffa372"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#2c003e", //hex colour code - e.g., https://www.google.com/search?q=color+picker
+              "stop": "value 1"
+            },
+            {
+              "color": "#512b58",
+              "stop": "value 2"
+            },
+            {
+              "color": "#ffa372",
+              "stop": "value 3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

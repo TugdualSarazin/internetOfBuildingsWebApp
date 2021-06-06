@@ -1,0 +1,212 @@
+@import 'vars';
+
+.siteContent-input {
+    width          : 100%;
+    display        : flex;
+    flex-direction : row;
+    justify-content: center;
+    align-items    : center;
+    align-content  : center;
+    margin         : 1rem 0px;
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="radio"]:disabled+label {
+        background-color: rgba(0, 0, 0, 0.5);
+        border          : 1px solid $secondary;
+        color           : rgb(185, 185, 185);
+    }
+
+    input[type="radio"]:checked+label {
+        background-color: $primary;
+        border          : 1px solid $secondary;
+        color           : black;
+    }
+
+    label {
+        /*not checked*/
+        display         : flex;
+        background-color: $highlight-colour-transparent;
+        cursor          : pointer;
+        width           : 100%;
+        height          : 1.5rem;
+        color           : white;
+        text-align      : center;
+        border          : 1px solid white;
+        justify-content : center;
+        align-items     : center;
+        padding         : 4px 10px;
+        min-width       : 2rem;
+        font-size       : 0.9rem;
+        box-shadow      : $shadow;
+    }
+
+}
+
+/* ----------------- Containers */
+.data-container {
+    overflow: auto;
+    padding : 1rem;
+}
+
+
+.display-as-list {
+    display       : flex;
+    flex-direction: column;
+    flex-wrap     : wrap;
+}
+
+.datalayer {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+}
+
+.main-controls{
+    display        : flex;
+    justify-content: space-evenly;
+}
+
+
+/*----------------------------- styled checkbox */
+
+.styled-checkbox {
+    position: absolute;
+    opacity : 0;
+    cursor  : pointer;
+    display : none;
+
+    &:disabled+label {
+        color : #b8b8b8;
+        cursor: auto;
+
+        &:before {
+            box-shadow: none;
+            background: $primary;
+        }
+
+        &:after {
+            content   : '';
+            position  : absolute;
+            border    : 1px solid $secondary;
+            background: $primary;
+            width     : 10px;
+            height    : 10px;
+        }
+    }
+
+    &:checked+label:before {
+        background: $primary;
+        border    : 1px solid $primary;
+        box-shadow: 0 0 3px rgba(71, 71, 71, 0.5);
+    }
+
+    &:hover+label:before {
+        box-shadow: 0 0 5px rgba(71, 71, 71, 0.6);
+    }
+
+    &:focus+label:before {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+
+}
+
+.styled-checkbox+label {
+    position     : relative;
+    cursor       : pointer;
+    padding      : 5px;
+    //margin     : 5px;
+    display      : flex;
+    align-items  : center;
+
+
+    &:before {
+        content       : '';
+        margin-right  : 10px;
+        display       : inline-block;
+        vertical-align: text-top;
+        width         : 10px;
+        height        : 10px;
+        min-width     : 10px;
+        min-height    : 10px;
+        background    : $background-colour;
+        border        : 1px solid $secondary;
+        border-radius : 50%;
+    }
+
+}
+
+
+/*----------------------------- dropdown */
+/* The dropdown container */
+.dropdown {
+    float   : left;
+    overflow: hidden;
+    width   : 100%;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+    font-size       : 16px;
+    border          : none;
+    outline         : none;
+    padding         : 14px 16px;
+    background-color: inherit;
+    font-family     : inherit;
+    /* Important for vertical align on mobile phones */
+    margin          : 0;
+    /* Important for vertical align on mobile phones */
+    width           : 100%;
+    color: inherit;
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: $primary;
+    color           : white;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display         : none;
+    position        : absolute;
+    background-color: $background-colour;
+    min-width       : 160px;
+    box-shadow      : 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index         : 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float          : none;
+    color          : $font-colour;
+    padding        : 12px 16px;
+    text-decoration: none;
+    display        : block;
+    text-align     : left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: $highlight-colour;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* ----------------- Legend */
+.legend-text {
+    text-shadow: 1px 1px #000000;
+    min-width  : 50px;
+    margin-left: 25px;
+}
+
+#legend {
+    font-style: italic;
+}

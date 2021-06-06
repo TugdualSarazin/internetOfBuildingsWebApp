@@ -1,0 +1,29 @@
+@import "vars";
+
+.overlay-title {
+    margin-left: 1rem;
+}
+
+.overlay-text {
+    padding: 2rem;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+.image-container {
+    margin: 1rem;
+    height: 65vh;
+}
+
+.overlay-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5vw;
+    right: 0.5vw;
+    cursor: pointer;
+}
