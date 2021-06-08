@@ -47,8 +47,8 @@
 
 /* ----------------- Containers */
 .data-container {
-    overflow: auto;
-    padding : 1rem;
+    overflow: auto;   
+    overflow-y: auto;
 }
 
 
@@ -69,6 +69,13 @@
     justify-content: space-evenly;
 }
 
+.main-layer-container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
 
 /*----------------------------- styled checkbox */
 
@@ -201,12 +208,15 @@
 
 
 /* ----------------- Legend */
-.legend-text {
-    text-shadow: 1px 1px #000000;
-    min-width  : 50px;
-    margin-left: 25px;
+
+.legend-container{    
+    overflow-y: auto;
 }
 
-#legend {
-    font-style: italic;
+.gradient{
+    height: 1rem;
+}
+
+.annotation{
+    font-size: small;
 }

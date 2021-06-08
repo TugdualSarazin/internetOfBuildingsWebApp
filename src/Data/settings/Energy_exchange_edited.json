@@ -68,7 +68,7 @@
             "status": true,
             "text": "Scatterplot consumers-producers"
           },
-          "image": "false"
+          "icon": false
         },
         {
           "name": "Energy_consumption",
@@ -168,7 +168,7 @@
             "status": false,
             "text": "Scatterplot consumers-producers"
           },
-          "image": "false"
+          "icon": false
         }
       ]
     }

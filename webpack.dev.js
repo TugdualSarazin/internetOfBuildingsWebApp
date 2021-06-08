@@ -47,8 +47,6 @@ module.exports = merge(common, {
             'node_modules': path.join(__dirname, 'node_modules')
         },
 
-       
-        // fallback: { "buffer": require.resolve("buffer/") }
     },
     devServer: {
         // contentBase: path.join(__dirname, 'dist'),

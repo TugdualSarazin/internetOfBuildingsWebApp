@@ -3,9 +3,9 @@
 //----------------------------------------------------------------------------------
 
 //***---- IMPORTS ----***//
-import * as UT from './utilities.js';
 import { populateLayers } from './main.js';
-import GeoIndex from './../Data/Energy_exchange.json'
+import * as FileHandler from './fileHandler.js'
+//import GeoIndex from './../data/sampleFile.json'
 
 //#region VARIABLES
 const accessToken = process.env.ACCESS_TOKEN;
@@ -14,7 +14,7 @@ const mapboxUser = process.env.USER;
 
 const coordinates = document.getElementById("coordinates");
 //export const geocoderBar = document.querySelector("#geocoder");
-export const uiJsondata = [GeoIndex];
+export let uiJsondata='' ; 
 
 let loadedMap = true;
 
@@ -144,6 +144,7 @@ document.onmousemove = function (e) {
  * Read all settings files
  */
 export function initialiseGeodataUIJson() {
+    uiJsondata = FileHandler.getAllSettingsFiles();
     populateLayers(uiJsondata);
 }
 /**
@@ -418,7 +419,7 @@ export function addLineLayer(datalayer, visibility = "none") {
         paint["line-color"].push('#ccc')/* other */
     }
     
-debugger
+
     map.addLayer({
         'id': datalayer.uuid,
         'type': 'line',
@@ -443,7 +444,7 @@ debugger
  */
 export function openLayer(selectedLayer) {
     map.setLayoutProperty(selectedLayer, 'visibility', 'visible');
-    let layer = uiJsondata.find(x => x.name == selectedLayer)
+    let layer = uiJsondata.find(x => x.uuid == selectedLayer)
     if (layer) zoomToLayer(layer);
 }
 

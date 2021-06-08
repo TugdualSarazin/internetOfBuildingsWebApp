@@ -40,7 +40,7 @@ To start a local development server
 
 We use [Semantic Versioning](http://semver.org/) for versioning. For the versions
 available, see the [tags on this
-repository]().
+repository](https://github.com/annakampvr/internetOfBuildingsWebApp/tags).
 
 ## Authors
 

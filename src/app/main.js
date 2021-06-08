@@ -5,6 +5,8 @@
 //***---- IMPORTS ----***//
 import * as Map from "./map.js";
 import * as UT from "./utilities.js";
+import {importAllImages} from "./fileHandler.js"
+
 
 //#region VARIABLES
 
@@ -17,8 +19,11 @@ export const proposalBtn = document.querySelector("#buttonProposal");
 const dataLayerPanel = document.getElementById("dataLayers");
 const legend = document.getElementById("legend");
 const temp = document.getElementById("data-layer-template");
-const legendTemp = document.querySelector("#buttonProposal");
+const legendTemp = document.querySelector("#legend-template");
 export let selectedLayer;
+const driveImages =  importAllImages(require.context('./../images/driveImages', false, /\.(png|jpe?g|svg)$/));
+console.log(driveImages)
+
 //#endregion
 
 //#region ACTION BUTTONS
@@ -81,6 +86,8 @@ function addClusterToDropdown(clusterName, uuid) {
   cluster.innerText = clusterName;
   document.querySelector('.dropdown-content').appendChild(cluster);
   cluster.addEventListener("click", () => {
+    closeAllLayers();
+    UT.clearList(legend);
     [...dataLayerPanel.querySelectorAll(".cluster")].map(x => x.classList.add("hidden"))
     document.getElementById(uuid).classList.remove("hidden");
     document.querySelector('.dropbtn').innerHTML = `${clusterName}  <i class="fa fa-caret-down"></i>`;
@@ -164,13 +171,12 @@ function addLayerToInterface(datalayer, parent) {
 
     if (toggle.getAttribute("state") == "on") {
       Map.closeLayer(toggle.id);
-      toggle.setAttribute("state", "off");
-      legend.classList.add("hidden");
-
+      toggle.setAttribute("state", "off");      
+      UT.clearList(legend);
     } else {
 
       if (selectedLayer != "") {
-        legend.classList.add("hidden");
+        // legend.classList.add("hidden");
       }
 
       Map.openLayer(toggle.id);
@@ -179,7 +185,7 @@ function addLayerToInterface(datalayer, parent) {
 
       toggle.setAttribute("state", "on");
       //setup legend
-      //createLegend(toggle);
+      createLegend(datalayer);
     }
   });
 }
@@ -207,28 +213,30 @@ export function closeAllLayers() {
  */
 function createLegend(layer) {
   UT.clearList(legend);
-  let legendClone = temp.content.cloneNode(true);
+  let legendClone = legendTemp.content.cloneNode(true);
   //add icon
-  legendClone.querySelector("#icon").src = `./images/${layer.icon}`;
+  if (layer.icon) legendClone.querySelector("#icon").src = `images/${layer.icon}`;
+  else legendClone.querySelector("#icon").classList.add("hidden")
   //title
   legendClone.querySelector("#layer-name").innerText = layer.name;
   //description
   legendClone.querySelector("#layer-description").innerText = layer.description;
   //units
   legendClone.querySelector("#units").innerText = layer.units;
-  if(layer.units=="N/A")legendClone.querySelector("#units").classList.add("hidden") //hide if not applicable
+  if (layer.units == "N/A") legendClone.querySelector("#units").classList.add("hidden") //hide if not applicable
   //colours - gradient
   let colourString = "";
   layer.legend.forEach((colour, i) => {
-    if (i > 0 && layer.interpolation) colourString += `#${layer.legend[i-1].color} ${parseFloat(layer.legend[i-1].stop)}%, #${colour.color} ${parseFloat(colour.stop)}%, `
-    else colourString += `#${colour.color} ${colour.stop}%, `
+    if (i > 0 && layer.interpolation) colourString += `${layer.legend[i - 1].color} ${parseFloat(layer.legend[i - 1].stop)}%, ${colour.color} ${parseFloat(colour.stop)}%, `
+    else colourString += `${colour.color} ${colour.stop}%, `
   });
-  legendClone.querySelector("#gradient").background = `linear-gradient(to right, ${colourString.slice(0, -2)})`;
+  legendClone.querySelector(".gradient").style.background = `linear-gradient(to right, ${colourString.slice(0, -2)})`;
+  console.log(`linear-gradient(to right, ${colourString.slice(0, -2)})`)
   //legend values
   //** TO DO: handle discrete values */
   legendClone.querySelector("#min").innerText = layer.legend[0].stop;
   legendClone.querySelector("#max").innerText = layer.legend[layer.legend.length - 1].stop;
-  
+
   legend.appendChild(legendClone)
 }
 //#endregion

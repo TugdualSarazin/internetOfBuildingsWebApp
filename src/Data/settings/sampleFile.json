@@ -84,7 +84,7 @@
                         "status": false,
                         "text": "my_text_goes_here"
                     },
-                    "image": "image_name_in_shared_folder"
+                    "icon": "extension_white_24dp.svg"
                 },
                 {
                     "name": "Green space",
@@ -142,7 +142,7 @@
                         "status": false,
                         "text": "my_text_goes_here"
                     },
-                    "image": "image_id_in_shared_folder"
+                    "icon": "extension_white_24dp.svg"
                 }
             ]
         },
@@ -202,7 +202,7 @@
                 "status": false,
                 "text": "my_text_goes_here"
             },
-            "image": "image_id_in_shared_folder"
+            "icon": "extension_white_24dp.svg"
         }
     ]
 }

@@ -20,7 +20,7 @@
             <!-- Geocoder -->
             <!-- <div id='geocoder' class='geocoder'></div> -->
             <!-- Data Layers -->
-            <div class="left-side-container">
+            <aside class="left-side-container">
                 <header style="display: flex;">
                     <div class="dropdown">
                         <button class="dropbtn">Research cluster
@@ -45,13 +45,13 @@
                         <i class="material-icons-outlined"> emoji_objects </i>
                     </button>
                 </div>
-                <div class="data-container" id="dataLayers"> </div>
-                <!-- ---------- legend --------- -->
-                <footer class="hidden" id="legend">
-                    <div class="display-as-list" id="vector-legend"></div>
-                    <p class="unit-text"><span class="subtititle" id="data-units">m</span></p>
-                </footer>
-            </div>
+                <div class="main-layer-container">
+                    <div class="data-container" id="dataLayers"> </div>
+                    <!-- ---------- legend --------- -->
+                    <footer class="legend-container" id="legend"></footer>
+                </div>
+               
+            </aside>
             <!-- Methodology overlay -->
             <div class="overlay hidden" id="methodology-overlay">
                 <h1 class="overlay-title">Methodology</h1>
@@ -130,18 +130,18 @@
 
     <!-- legend template -->
     <template id="legend-template">
-        <div>
-            <img src="" alt="layer icon">
+        <div style="display: flex;">
+            <img  alt="layer icon" id="icon">
             <h3 id="layer-name"></h3>
         </div>
         <p id="layer-description"></p>
-        <div>
-            <p id="min"></p>
-            <p id="max"></p>
+        <div class="datalayer">
+            <p id="min" class="annotation"></p>
+            <p id="max" class="annotation"></p>
         </div>
-        <div id="gradient"></div>
+        <div class="gradient"></div>
         <div>
-            <p id="units"></p>
+            <p id="units" class="annotation"></p>
         </div>
     </template>
   
