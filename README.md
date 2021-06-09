@@ -27,6 +27,14 @@ Open a terminal
 
     VScode > Terminal > New Terminal
 
+Install webpack
+
+    npm install --save-dev webpack
+
+Install webpack cli
+
+    npm install --save-dev webpack-cli
+
 Install modules
 
     npm install
