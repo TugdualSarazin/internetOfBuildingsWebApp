@@ -43,6 +43,10 @@ To start a local development server
 
     npm start
 
+To test your .json file, paste it in the settings folder in:
+
+    src > data > settings 
+
 
 ## Versioning
 
