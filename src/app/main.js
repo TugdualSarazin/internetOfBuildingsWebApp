@@ -5,7 +5,7 @@
 //***---- IMPORTS ----***//
 import * as Map from "./map.js";
 import * as UT from "./utilities.js";
-import {importAllImages} from "./fileHandler.js"
+import { importAllImages } from "./fileHandler.js"
 
 
 //#region VARIABLES
@@ -21,7 +21,7 @@ const legend = document.getElementById("legend");
 const temp = document.getElementById("data-layer-template");
 const legendTemp = document.querySelector("#legend-template");
 export let selectedLayer;
-const driveImages =  importAllImages(require.context('./../images/driveImages', false, /\.(png|jpe?g|svg)$/));
+const driveImages = importAllImages(require.context('./../images/driveImages', false, /\.(png|jpe?g|svg)$/));
 console.log(driveImages)
 
 //#endregion
@@ -34,17 +34,17 @@ dataLayersBtn.addEventListener("click", function () {
 
 methodologyBtn.addEventListener("click", function () {
   closeAllOverlays()
-  document.querySelector("#methodology-overlay").classList.remove("hidden");
+  document.querySelector("#methodology").classList.remove("hidden");
 });
 
 challengeBtn.addEventListener("click", function () {
   closeAllOverlays()
-  document.querySelector("#challenge-overlay").classList.remove("hidden");
+  document.querySelector("#challenge").classList.remove("hidden");
 });
 
 proposalBtn.addEventListener("click", function () {
   closeAllOverlays()
-  document.querySelector("#proposal-overlay").classList.remove("hidden");
+  document.querySelector("#proposal").classList.remove("hidden");
 });
 //#endregion
 
@@ -56,7 +56,7 @@ proposalBtn.addEventListener("click", function () {
 export function populateLayers(data) {
   data.forEach(cluster => {
     cluster.uuid = uuidv4();
-    addClusterToDropdown(cluster.group, cluster.uuid);
+    addClusterToDropdown(cluster);
     const clusterGroup = document.createElement('ul');
     clusterGroup.id = cluster.uuid;
     clusterGroup.classList.add('cluster');
@@ -81,16 +81,19 @@ export function populateLayers(data) {
  * @param {String} clusterName 
  * @param {String} uuid 
  */
-function addClusterToDropdown(clusterName, uuid) {
+function addClusterToDropdown(clusterData) {
   const cluster = document.createElement('a');
-  cluster.innerText = clusterName;
+  cluster.innerText = clusterData.group;
+  cluster.style.width = document.querySelector('.dropbtn').clientWidth - 33 + "px"
   document.querySelector('.dropdown-content').appendChild(cluster);
   cluster.addEventListener("click", () => {
     closeAllLayers();
+    closeAllOverlays()
     UT.clearList(legend);
     [...dataLayerPanel.querySelectorAll(".cluster")].map(x => x.classList.add("hidden"))
-    document.getElementById(uuid).classList.remove("hidden");
-    document.querySelector('.dropbtn').innerHTML = `${clusterName}  <i class="fa fa-caret-down"></i>`;
+    document.getElementById(clusterData.uuid).classList.remove("hidden");
+    document.querySelector('.dropbtn').innerHTML = `${clusterData.group}  <i class="fa fa-caret-down"></i>`;
+    generateOverlays(clusterData)
   })
 }
 
@@ -171,7 +174,7 @@ function addLayerToInterface(datalayer, parent) {
 
     if (toggle.getAttribute("state") == "on") {
       Map.closeLayer(toggle.id);
-      toggle.setAttribute("state", "off");      
+      toggle.setAttribute("state", "off");
       UT.clearList(legend);
     } else {
 
@@ -242,6 +245,24 @@ function createLegend(layer) {
 //#endregion
 
 //#region OVERLAYS
+/**
+ * Populate overlay data for cluster
+ * @param {Object} cluster 
+ */
+function generateOverlays(cluster) {  
+  const overlays = [...document.querySelectorAll('.overlay')]
+  for(let overlay of overlays){
+    //set text
+    overlay.querySelector('#overlay-description').innerText = cluster[overlay.id].description;
+    //set image
+    const imageContainer = overlay.querySelector('.image-container');
+    imageContainer.style.backgroundImage = `url(images/${cluster[overlay.id].image})`
+    imageContainer.style.backgroundPosition = 'center'
+    imageContainer.style.backgroundSize = 'contain'
+    imageContainer.style.backgroundRepeat = 'no-repeat'
+  }
+}
+
 /**
  * Turn off all overlays
  */

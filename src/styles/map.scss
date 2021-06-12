@@ -81,12 +81,16 @@
 
 .mapboxgl-popup-content {
     position      : relative;
-    background    : #fff;
+    background    : $background-colour !important;
     box-shadow    : 0 1px 2px rgba(0, 0, 0, 0.1);
     padding       : 10px 10px 15px;
     pointer-events: auto;
     max-height    : 200px;
     overflow-y    : scroll;
+
+    p{
+        font-size: inherit;
+    }
 }
 
 .mapbox-gl-draw_ctrl-draw-btn {
@@ -105,6 +109,19 @@
     
 }
 
+.mapboxgl-popup-close-button{
+    color: $font-colour;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {   
+    border-top-color: $background-colour !important;
+}
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {   
+    border-left-color:  $background-colour !important;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {    
+    border-bottom-color: $background-colour !important;
+}
 
 // .mapbox-gl-draw_ctrl-draw-btn:hover {
 //     background-color: black;

@@ -222,7 +222,7 @@ export function addPointLayer(datalayer, visibility = 'none') {
                 }
             }, labelLayerId);
 
-            if (datalayer.interactable) displayPopupOnClick(datalayer);
+            if (datalayer.interactable && datalayer.interactable.status)  displayPopupOnClick(datalayer);
             break;
 
         case 'heatmap':
@@ -313,7 +313,7 @@ export function addVectorLayer(datalayer, visibility = "none") {
                 },
                 labelLayerId
             );
-
+           
             break;
         case '3D':
             let paint = {
@@ -377,6 +377,7 @@ export function addVectorLayer(datalayer, visibility = "none") {
             break;
     }
 
+    if (datalayer.interactable && datalayer.interactable.status) displayPopupOnClick(datalayer);
 }
 /**
  * Add a lineString layer on map
@@ -533,15 +534,14 @@ function confirmPopup(message) {
  * @param {Object} layer 
  */
 function displayPopupOnClick(layer) {
-    map.on('click', layer.name, function (e) {
-        //var coordinates = e.features[0].geometry.coordinates.slice();
+    map.on('click', layer.uuid, function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
         //var description = e.features[0].properties.country;
         let features = map.queryRenderedFeatures(e.point);
         //console.log(features);
         let displayinfoText = document.createElement("div");
         for (let key in features[0].properties) {
-            let line = document.createElement("p");
-            line.classList.add("black-text");
+            let line = document.createElement("p");            
             line.innerText = key + " : " + features[0].properties[key];
             displayinfoText.appendChild(line);
         }
@@ -556,18 +556,18 @@ function displayPopupOnClick(layer) {
         let popup = new mapboxgl.Popup()
             .setLngLat(e.lngLat)
             // .setHTML(JSON.stringify(features, null, 2))
-            .setHTML("DATA")
+            .setHTML(layer.interactable.text)
             .addTo(map);
         popup._content.appendChild(displayinfoText);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', id, function () {
+    map.on('mouseenter', layer.uuid, function () {
         map.getCanvas().style.cursor = 'pointer';
     });
 
     // Change it back to a pointer when it leaves.
-    map.on('mouseleave', id, function () {
+    map.on('mouseleave', layer.uuid, function () {
         map.getCanvas().style.cursor = '';
     });
 }

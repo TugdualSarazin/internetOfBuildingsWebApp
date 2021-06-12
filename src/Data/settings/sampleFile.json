@@ -8,7 +8,7 @@
     },
     "methodology": {
         "description": "text",
-        "image": "image_name_in_shared_folder",
+        "image": "overlay_sample.png",
         "video": "video_url"
     },
     "challenge": {
@@ -139,8 +139,8 @@
                         }
                     ],
                     "interactable": {
-                        "status": false,
-                        "text": "my_text_goes_here"
+                        "status": true,
+                        "text": "Land use value:"
                     },
                     "icon": "extension_white_24dp.svg"
                 }

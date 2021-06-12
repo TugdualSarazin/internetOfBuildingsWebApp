@@ -3,18 +3,15 @@
     "icon": "image_name_in_shared_folder",
     "proposal": {
         "description": "text",
-        "image": "image_name_in_shared_folder",
-        "video": "video_url"
+        "image": "image_name_in_shared_folder"        
     },
     "methodology": {
         "description": "text",
-        "image": "image_name_in_shared_folder",
-        "video": "video_url"
+        "image": "image_name_in_shared_folder"        
     },
     "challenge": {
         "description": "text",
-        "image": "image_name_in_shared_folder",
-        "video": "video_url"
+        "image": "image_name_in_shared_folder"        
     },
     "layers": [
         {
