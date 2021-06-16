@@ -368,6 +368,8 @@ export function addLineLayer(datalayer, visibility = "none") {
         'line-width': 3,
         'line-color': []
     }
+
+    /* line-color */
     if (datalayer.interpolation) {
         paint['line-color'] = [
             "interpolate",
@@ -389,7 +391,18 @@ export function addLineLayer(datalayer, visibility = "none") {
         }
         paint["line-color"].push('#ccc')/* other */
     }
-    
+
+    /* line-width */
+    if (typeof datalayer.linewidth !== 'undefined') {
+        paint['line-width'] = [
+            "interpolate",
+            ["linear"],
+            ['get', datalayer.linewidth.property]]
+        for (let stop of datalayer.linewidth.stops) {
+            paint["line-width"].push(stop[0])
+            paint["line-width"].push(["to-number", stop[1]])
+        }
+    }
 
     map.addLayer({
         'id': datalayer.uuid,
