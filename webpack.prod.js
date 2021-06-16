@@ -10,7 +10,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = merge(common, {
     mode: "production",
     output: {
-        filename: "main.[contenthash].js", // Handle cache
+        filename: "[name].[contenthash].js", // Handle cache
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
@@ -20,12 +20,26 @@ module.exports = merge(common, {
             new TerserPlugin(),
             new HtmlWebpackPlugin({
                 template: "./src/template.html",
+                inject: true,
+                chunks: ['index'],
+                filename: 'app.html',
                 minify: {
                     removeAttributeQuotes: true,
                     collapseWhitespace: true,
                     removeComments: true
                 }
-            })
+            }),
+            new HtmlWebpackPlugin({
+                template: "./src/landingPageTemplate.html",
+                inject: true,
+                chunks: ['landingPage'],
+                filename: 'index.html',
+                minify: {
+                    removeAttributeQuotes: true,
+                    collapseWhitespace: true,
+                    removeComments: true
+                }
+            }),
         ]
     },
     plugins: [

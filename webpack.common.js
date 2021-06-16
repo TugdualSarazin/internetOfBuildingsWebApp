@@ -1,6 +1,9 @@
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        index: './src/index.js',
+        landingPage: './src/landingPage.js', 
+    },
     module: {
         rules: [
             {

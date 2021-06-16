@@ -23,7 +23,10 @@
 
 .close-button {
     position: absolute;
-    top: 0.5vw;
-    right: 0.5vw;
+    top: 1.5vw;
+    right: 1.5vw;
     cursor: pointer;
+    i{
+        font-size: 30px !important;
+    }    
 }

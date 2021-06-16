@@ -5,15 +5,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(common, {
-    mode: "development",
+    mode: "development",   
     output: {
-        filename: "main.js", // Handle cache
+        filename:'[name].[hash:20].js', // Handle cache
         path: path.resolve(__dirname, "dist"),
         clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "./src/template.html"
+            template: "./src/template.html",
+            inject: true,
+            chunks: ['index'],
+            filename: 'app'
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/landingPageTemplate.html",
+            inject: true,
+            chunks: ['landingPage'],
+            filename: 'index.html'
         }),
         new Dotenv({ // makes vars available to the application js code
             path: './.env',
