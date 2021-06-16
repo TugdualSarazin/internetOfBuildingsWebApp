@@ -37,7 +37,7 @@ const buildings = {
             ],
         ],
         "extrusion-height": "height",           
-        "extrusion-opacity": 1
+        "extrusion-opacity": 0.75
     },
     "uuid":uuidv4()
 }
@@ -152,15 +152,9 @@ export function initialiseGeodataUIJson() {
  * @param {Object} datalayer 
  * @param {String} visibility 
  */
-export function addRasterLayer(datalayer, visibility = 'none') {
-    var layers = map.getStyle().layers;
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
+export function addRasterLayer(datalayer, visibility = 'none') {   
+    const labelLayerId = getTopLevelLayers();
+   
     map.addLayer({
         "id": datalayer.uuid,
         "source": {
@@ -179,16 +173,7 @@ export function addRasterLayer(datalayer, visibility = 'none') {
  * @param {String} visibility 
  */
 export function addPointLayer(datalayer, visibility = 'none') {
-    var layers = map.getStyle().layers;
-
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
-
+    const labelLayerId = getTopLevelLayers();
     switch (datalayer.type) {
         case 'point':
             let colours = ['match', ['get', datalayer.paint.property]]
@@ -258,14 +243,7 @@ export function addPointLayer(datalayer, visibility = 'none') {
  * @param {String} visibility 
  */
 export function addVectorLayer(datalayer, visibility = "none") {
-    var layers = map.getStyle().layers;
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
+    const labelLayerId = getTopLevelLayers();
 
     switch (datalayer.representation) {
         case '2D':
@@ -385,15 +363,7 @@ export function addVectorLayer(datalayer, visibility = "none") {
  * @param {String} visibility 
  */
 export function addLineLayer(datalayer, visibility = "none") {
-    var layers = map.getStyle().layers;
-
-    var labelLayerId;
-    for (var i = 0; i < layers.length; i++) {
-        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-            labelLayerId = layers[i].id;
-            break;
-        }
-    }
+    const labelLayerId = getTopLevelLayers();
     let paint = {
         'line-width': 3,
         'line-color': []
@@ -455,6 +425,18 @@ export function openLayer(selectedLayer) {
  */
 export function closeLayer(selectedLayer) {
     map.setLayoutProperty(selectedLayer, 'visibility', 'none');
+}
+
+function getTopLevelLayers(){
+    const layers = map.getStyle().layers;
+    let labelLayerIds;
+    for(let layer of layers){
+        if ((layer.type === 'symbol' && layer.layout['text-field']) || layer.id==buildings.uuid){
+            labelLayerIds=layer.id
+            break
+        }
+    }   
+    return labelLayerIds
 }
 
 //#endregion
