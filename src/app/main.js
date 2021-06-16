@@ -240,7 +240,7 @@ function createLegend(layer) {
     //colours - gradient
     let colourString = "";
     layer.legend.forEach((colour, i) => {
-      if (i > 0 && layer.interpolation) colourString += `${layer.legend[i - 1].color} ${parseFloat(layer.legend[i - 1].stop)}%, ${colour.color} ${parseFloat(colour.stop)}%, `
+      if (i > 0 && layer.interpolation) colourString += `${layer.legend[i - 1].color} ${remap(parseFloat(layer.legend[i - 1].stop),parseFloat(layer.legend[0].stop),parseFloat(layer.legend[layer.legend.length-1].stop),0,100)}%, ${colour.color} ${remap(parseFloat(colour.stop),parseFloat(layer.legend[0].stop),parseFloat(layer.legend[layer.legend.length-1].stop),0,100)}%, `
       else colourString += `${colour.color} ${colour.stop}%, `
     });
     legendClone.querySelector(".gradient").style.background = `linear-gradient(to right, ${colourString.slice(0, -2)})`;
@@ -271,6 +271,10 @@ function createLegend(layer) {
   }
 
   legend.appendChild(legendClone)
+}
+
+function remap (value,  from1, to1,  from2,  to2) {
+  return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 }
 //#endregion
 
