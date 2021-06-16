@@ -180,6 +180,14 @@
                     ]
                 ]
             },
+            
+          "linewidth": {
+            "property": "ele",
+            "stops": [
+              [0, 1],
+              [500, 8]
+            ]
+          },
             "legend": [
                 {
                     "color": "#53e6de",
