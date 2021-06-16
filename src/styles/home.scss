@@ -1,15 +1,15 @@
 @import "vars";
 
-p{
+p {
     width: 60vw;
     text-align: justify;
 }
-a{
+a {
     text-decoration: none;
 }
 
-.landing-page{
-    background: url('./../images/MonochromeDark.png');
+.landing-page {
+    background: url("./../images/MonochromeDark.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,42 +21,70 @@ a{
     overflow-y: auto;
 }
 
-.logo{
+.logo {
     width: 45vw;
     height: 45vh;
     min-width: 200px;
     min-height: 200px;
-    background: url('./../images/logos/iob.png');
+    background: url("./../images/logos/iob.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 3;
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
     right: 0;
 }
 
-.link{
+.link {
     font-weight: bold;
     color: $font-colour;
-    font-style: italic; 
-    &:hover{
+    font-style: italic;
+    &:hover {
         color: $secondary;
     }
 }
 
-.main-button{
+.main-button {
     color: $font-colour;
-    &:hover{
+    padding: 0.5rem 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    &:hover {
         color: $secondary;
     }
+}
+
+#IAAC-logo {
+    background: url('./../images/logos/IaaC.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5rem;
+    height: 5rem;
+}
+#CIL-logo {
+    background: url('./../images/logos/CIL.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5rem;
+    height: 5rem;
+}
+#decodeCreative-logo {
+    background: url('./../images/logos//decode_creative.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
-    p{
+    p {
         width: auto;
         margin: 1rem;
     }

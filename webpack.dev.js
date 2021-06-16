@@ -5,9 +5,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = merge(common, {
-    mode: "development",   
+    mode: "development",
     output: {
-        filename:'[name].[hash:20].js', // Handle cache
+        filename: '[name].[hash:20].js', // Handle cache
         path: path.resolve(__dirname, "dist"),
         clean: true
     },

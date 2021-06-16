@@ -3,8 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Internet of buildings</title>
-    <!-- <link rel="icon" type="image/png" href="./images/logo/.png" sizes="128x128"> -->
+    <title>Internet of buildings</title>    
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
+  
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./images/favicon/site.webmanifest">
     <meta name="description" content="Web interface for internet of buildings - IAAC 2021">
     <meta name="viewport" content="width=device-width">
     <!-- Fonts -->
@@ -63,7 +68,7 @@
                 <h1 class="overlay-title">Methodology</h1>
                 <div class="image-container"></div>
                 <div class="overlay-text">
-                    <p id="overlay-description">                       
+                    <p id="overlay-description">
                     </p>
                 </div>
                 <button class="icon-button-small close-button" id="close-overlay">
@@ -110,7 +115,7 @@
                 <input type="checkbox" name="dataLayer" class="data-layer-toggle styled-checkbox" id="layer-id"
                     state="off" initialise="false">
                 <label class="text-for-column" id="label" for="layer-id" title="label">layer</label>
-                <a href="a" id="layer-link" target="_blank" >
+                <a href="a" id="layer-link" target="_blank">
                     <button class="icon-button-small" id="link-btn">
                         <i class="material-icons-outlined small-icon"> launch </i>
                     </button>
@@ -135,9 +140,7 @@
             <p id="units" class="annotation"></p>
         </div>
     </template>
-
-
-
+    <p class="legend-tooltip hidden"></p>
 </body>
 
 <!-- Scripts -->
