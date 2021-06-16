@@ -393,12 +393,12 @@ export function addLineLayer(datalayer, visibility = "none") {
     }
 
     /* line-width */
-    if (typeof datalayer.linewidth !== 'undefined') {
+    if (datalayer.paint.lineWidth) {
         paint['line-width'] = [
             "interpolate",
             ["linear"],
-            ['get', datalayer.linewidth.property]]
-        for (let stop of datalayer.linewidth.stops) {
+            ['get', datalayer.paint.lineWidth.property]]
+        for (let stop of datalayer.paint.lineWidth.stops) {
             paint["line-width"].push(stop[0])
             paint["line-width"].push(["to-number", stop[1]])
         }

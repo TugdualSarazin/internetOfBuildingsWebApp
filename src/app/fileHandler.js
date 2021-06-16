@@ -13,4 +13,11 @@ export function importAllImages(r) {
     return images;
 }
 
+// const faviconsContext = require.context(
+//     './../images/',
+//     true,
+//     /\.(svg|png|xml|json)$/
+// );
+// faviconsContext.keys().forEach(faviconsContext);
+
 

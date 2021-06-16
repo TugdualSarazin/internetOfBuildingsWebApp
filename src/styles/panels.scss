@@ -221,8 +221,13 @@
     }
 }
 
+#layer-description{
+    margin-bottom: 1rem;
+}
+
 .gradient{
     height: 1rem;
+    display: flex;
 }
 
 .annotation{
@@ -233,4 +238,16 @@
     width: 3rem;
     height: 3rem;
     margin-right: 5px;
+}
+
+.legend-rec{
+    flex-grow: 1;
+    // margin-top: 1rem;
+}
+
+.legend-tooltip{
+    color: $font-colour;
+    background-color: $background-colour;
+    position: absolute;
+    z-index: 5;
 }

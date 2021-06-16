@@ -23,7 +23,6 @@ const temp = document.getElementById("data-layer-template");
 const legendTemp = document.querySelector("#legend-template");
 export let selectedLayer;
 const driveImages = importAllImages(require.context('./../images/driveImages', false, /\.(png|jpe?g|svg)$/));
-console.log(driveImages)
 
 //#endregion
 
@@ -125,7 +124,7 @@ function createParentLayer(datalayer, parent) {
   label.setAttribute("title", datalayer.description);
 
   let link = clone.querySelector("#layer-link");
-  if (datalayer.source && datalayer.source!="N/A") link.href = datalayer.source;
+  if (datalayer.source && datalayer.source != "N/A") link.href = datalayer.source;
   else link.classList.add("hidden")
 
   let sublayersParent = document.createElement("ul")
@@ -162,7 +161,7 @@ function addLayerToInterface(datalayer, parent) {
   label.setAttribute("title", datalayer.description);
   let link = clone.querySelector("#layer-link");
 
-  if (datalayer.source && datalayer.source!="N/A")  link.href = datalayer.source;
+  if (datalayer.source && datalayer.source != "N/A") link.href = datalayer.source;
   else link.classList.add("hidden")
   parent.appendChild(clone);
 
@@ -237,18 +236,39 @@ function createLegend(layer) {
   //units
   legendClone.querySelector("#units").innerText = layer.units;
   if (layer.units == "N/A") legendClone.querySelector("#units").classList.add("hidden") //hide if not applicable
-  //colours - gradient
-  let colourString = "";
-  layer.legend.forEach((colour, i) => {
-    if (i > 0 && layer.interpolation) colourString += `${layer.legend[i - 1].color} ${parseFloat(layer.legend[i - 1].stop)}%, ${colour.color} ${parseFloat(colour.stop)}%, `
-    else colourString += `${colour.color} ${colour.stop}%, `
-  });
-  legendClone.querySelector(".gradient").style.background = `linear-gradient(to right, ${colourString.slice(0, -2)})`;
-  console.log(`linear-gradient(to right, ${colourString.slice(0, -2)})`)
-  //legend values
-  //** TO DO: handle discrete values */
-  legendClone.querySelector("#min").innerText = layer.legend[0].stop;
-  legendClone.querySelector("#max").innerText = layer.legend[layer.legend.length - 1].stop;
+  if (layer.interpolation) {
+    //colours - gradient
+    let colourString = "";
+    layer.legend.forEach((colour, i) => {
+      if (i > 0 && layer.interpolation) colourString += `${layer.legend[i - 1].color} ${parseFloat(layer.legend[i - 1].stop)}%, ${colour.color} ${parseFloat(colour.stop)}%, `
+      else colourString += `${colour.color} ${colour.stop}%, `
+    });
+    legendClone.querySelector(".gradient").style.background = `linear-gradient(to right, ${colourString.slice(0, -2)})`;
+    console.log(`linear-gradient(to right, ${colourString.slice(0, -2)})`)
+    //legend values
+    legendClone.querySelector("#min").innerText = layer.legend[0].stop;
+    legendClone.querySelector("#max").innerText = layer.legend[layer.legend.length - 1].stop;
+  }
+  else {
+    for (let colour of layer.legend) {
+      let rec = document.createElement('div')
+      rec.classList.add('legend-rec')
+      rec.style.backgroundColor = colour.color
+      legendClone.querySelector("#max").innerHTML='<i class="material-icons-outlined" title="hover over the colours"> touch_app </i>'
+      rec.addEventListener('mouseover', (ev) => {
+        
+        let tooltip = document.querySelector('.legend-tooltip')
+        tooltip.classList.remove('hidden') 
+        tooltip.innerText = colour.stop;
+        tooltip.style.top = rec.getBoundingClientRect().y-24+ 'px'
+        tooltip.style.left = rec.getBoundingClientRect().x + 'px'
+      })
+      rec.addEventListener('mouseleave', () => {
+        document.querySelector('.legend-tooltip').classList.add('hidden') 
+      })
+      legendClone.querySelector(".gradient").appendChild(rec)
+    }
+  }
 
   legend.appendChild(legendClone)
 }
