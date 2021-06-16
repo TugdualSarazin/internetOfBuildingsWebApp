@@ -46,9 +46,12 @@
 }
 
 /* ----------------- Containers */
+
+
 .data-container {
     overflow: auto;   
     overflow-y: auto;
+    max-height: 65%;
 }
 
 
@@ -75,6 +78,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
+    max-height: 85%;
 }
 
 /*----------------------------- styled checkbox */
@@ -211,6 +215,10 @@
 
 .legend-container{    
     overflow-y: auto;
+
+    h3{
+        margin: 0;
+    }
 }
 
 .gradient{
@@ -219,4 +227,10 @@
 
 .annotation{
     font-size: small;
+}
+
+.layer-icon{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 5px;
 }

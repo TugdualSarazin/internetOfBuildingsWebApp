@@ -1,0 +1,131 @@
+{
+  "group": "Mobility",
+  "icon": "image_id_in_shared_folder",
+  "proposal": {
+    "description": "Great proposal",
+    "image": "image_id_in_shared_folder",
+    "video": "video_url"
+  },
+  "methodology": {
+    "description": "Great methodology.",
+    "image": "image_id_in_shared_folder",
+    "video": "video_url"
+  },
+  "challenge": {
+    "description": "Great challenges",
+    "image": "image_id_in_shared_folder",
+    "video": "video_url"
+  },
+  "layers": [
+    {
+      "name": "Mobilities",
+      "sublayers": [
+        {
+          "name": "PEQI",
+          "mapID": "internetofbuildings2021.78ikumgn",
+          "mapboxSrc": [
+            "mobility_pedestrian-5rdgh8"
+          ],
+          "type": "lineString",
+          "representation": "2D",
+          "source": "....",
+          "scale": "large",
+          "units": "",
+          "description": "Pedestrian Environmental Quality Index",
+          "interpolation": true,
+          "paint": {
+            "property": "PEQI",
+            "stops": [
+              [5.00, "#aa1315"],
+              [6.00, "#fba55d"],
+              [6.27, "#d1d194"],
+              [6.52, "#8ec9a9"],
+              [6.75, "#5ca6b2"],
+              [7.58, "#2b83ba"]
+            ]
+          },
+          "legend": [
+            {"color": "#aa1315", "stop": "0"},
+            {"color": "#d1d194", "stop": "6.27"},
+            {"color": "#2b83ba", "stop": "10"}
+          ],
+          "interactable": {
+            "status": true,
+            "text": "Scatterplot consumers-producers"
+          },
+          "icon": false
+        },
+        {
+          "name": "BEQI",
+          "mapID": "internetofbuildings2021.9kqt3gul",
+          "mapboxSrc": [
+            "mobility_bike-1n3w6j"
+          ],
+          "type": "lineString",
+          "representation": "2D",
+          "source": "....",
+          "scale": "large",
+          "units": "",
+          "description": "Bike Environmental Quality Index",
+          "interpolation": true,
+          "paint": {
+            "property": "BEQI",
+            "stops": [
+              [5.70, "#aa1315"],
+              [6.30, "#fdaf61"],
+              [6.90, "#ecc382"],
+              [7.50, "#cdd296"],
+              [7.90, "#a6daa5"],
+              [8.20, "#2b83ba"]
+            ]
+          },
+          "legend": [
+            {"color": "#aa1315", "stop": "0"},
+            {"color": "#cdd296", "stop": "7.50"},
+            {"color": "#2b83ba", "stop": "10"}
+          ],
+          "interactable": {
+            "status": true,
+            "text": "Scatterplot consumers-producers"
+          },
+          "icon": false
+        },
+        {
+          "name": "VEQI",
+          "mapID": "internetofbuildings2021.6vsv7g9d",
+          "mapboxSrc": [
+            "mobility_vehicle-3waxs7"
+          ],
+          "type": "lineString",
+          "representation": "2D",
+          "source": "....",
+          "scale": "large",
+          "units": "",
+          "description": "Vehicle Environmental Quality Index",
+          "interpolation": true,
+          "paint": {
+            "property": "VEQI",
+            "stops": [
+              [2.98, "#aa1315"],
+              [4.22, "#f3844d"],
+              [4.70, "#f5b871"],
+              [4.90, "#e6c98b"],
+              [5.30, "#9fd5a6"],
+              [9.10, "#2b83ba"]
+            ]
+          },
+          "legend": [
+            {"color": "#aa1315", "stop": "0"},
+            {"color": "#e6c98b", "stop": "4.90"},
+            {"color": "#2b83ba", "stop": "10"}
+          ],
+          "interactable": {
+            "status": true,
+            "text": "Scatterplot consumers-producers"
+          },
+          "icon": false
+        }
+      ]
+    }
+  ]
+}

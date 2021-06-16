@@ -1,0 +1,708 @@
+{
+  "group": "Social Economy", 
+  "icon": "image_name_in_shared_folder",
+  "proposal":{
+    "description":"Sociable Spaces, focuses on the question of how we can make public spaces more sociable. The proposal investigates different layers of data that may affect social interaction and coherence and attempts to propose a strategy of intervention to improve sociability in selected areas.",
+    "image": "image_name_in_shared_folder",
+    "video":"video_url"
+  },
+  "methodology": {
+    "description":"Through extensive research, we identified 12 indicators of social coherence and interaction. These layers are first analyzed and then categorized into 6 categories of sociability (Affordability, mixity, diversity, safety, attractiveness and connectivity). This helps to understand the performance of the area on every category. A clustering algorithm is then deployed to create delimited areas which have a similar behavior on each of the 6 categories. In parallel, footfall data of the same location is analyzed to identify “hot spots” of sociability. These are identified based on areas with highest footfall facilitating social interaction visualized into a sociability map. Next, the sociability map is intersected with the clusters to understand which clusters have the highest footfall in order to then understand the performance of these clusters in relation to the 6 categories of sociability. This procedure helps us identify which categories influence sociability the most and consequently propose strategies to improve these in order to increase sociability of desired locations",
+    "image": "Social_Economy_Methodology.jpg",
+    "video":"video_url"
+  },
+  "challenge":{
+    "description":"The main challenges regarding social and economic fields are intertwined, and directly impact the urban environment. On the economic side, gentrification, non-affordability and, therefore, inequality affect social participation and generate non-inclusive spaces. Whereas other social challenges affect people’s personal and economic relations, such as the recent pandemic, low interaction in public spaces and limited citizens participation, leading to lack of sociability and community feeling.",
+    "image": "Social_Economy_Main-challenges.jpg",
+    "video":"video_url"
+  },
+  "layers": [
+    {
+      "name": "Categories",
+      "sublayers": [
+        {
+          "name": "Affordability", 
+          "mapID": "internetofbuildings2021.4qoh8ay2",
+          "mapboxSrc": [
+            "Social_Economy_Affordability-6ciw9k"
+          ],
+          "type": "polygon", 
+          "representation": "2D",
+          "source": "https://opendata-ajuntament.barcelona.cat/es/",
+          "scale": "detailed",        
+          "units": "N/A",
+          "description": "Affordable places are inclusive. In order to assess affordability, we have analysed the presence of different socioeconomic groups and rent prices of houses, identifying their ability to pay for it.", 
+          "interpolation": true,  
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                0,
+                "#e8bccb" 
+              ],
+              [
+                1,
+                "#af1344"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#e8bccb", 
+              "stop": "0"
+            },
+            {
+              "color": "#af1344",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Affordability Values"
+          },
+          "image": "false" ,
+          "icon":"Affordability.jpg"
+        },
+        {
+          "name": "Mixity", 
+          "mapID": "internetofbuildings2021.66qhdfyj", 
+          "mapboxSrc": [
+            "Social_Economy_Mixity-8b0k26"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "https://opendata-ajuntament.barcelona.cat/es/",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The analysis of mixity was focused on the presence of diverse amenities and the accessibility to them, which are points of attraction for different kinds of social interaction", 
+          "interpolation": true,
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                0,
+                "#d486aa" 
+              ],
+              [
+                1,
+                "#75063a"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#d486aa", 
+              "stop": "0"
+            },
+            {
+              "color": "#75063a",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Mixity Values"
+          },
+          "image": "image_name_in_shared_folder",
+          "icon":"Mixity.jpg" 
+        },
+        {
+          "name": "Diversity", 
+          "mapID": "internetofbuildings2021.67qzo3yc", 
+          "mapboxSrc": [
+            "Social_Economy_Diversity-5ha6wk"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "https://www.openstreetmap.org/",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "Diversity analysis aimed to identify the distinct users of the space through the presence of institutions attended by different age groups, to evaluate the inclusiveness of social interactions", 
+          "interpolation": true,
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                0,
+                "#e0a1de" 
+              ],
+              [
+                1,
+                "#602f5e"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#e0a1de", 
+              "stop": "0"
+            },
+            {
+              "color": "#602f5e",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Diversity Values"
+          },
+          "image": "image_name_in_shared_folder",
+          "icon":"Diversity.jpg"
+        },
+        {
+          "name": "Safety", 
+          "mapID": "internetofbuildings2021.1ho29m0l", 
+          "mapboxSrc": [
+            "Social_Economy_Safety-9omkl2"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "https://opendata-ajuntament.barcelona.cat/es/",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "People do not socialize in unsafe places. For assessing safety, we have analysed visibility, as paths that are not visible may disencourage users, as well as the presence of abandoned plots", 
+          "interpolation": true,
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                0,
+                "#c0ade9" 
+              ],
+              [
+                1,
+                "#3d3257"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#c0ade9", 
+              "stop": "0"
+            },
+            {
+              "color": "#3d3257",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "my_text_goes_here"
+          },
+          "image": "https://drive.google.com/file/d/1TUPrakKHkh1H8I3d0ZVSP7KURzpXoMsA/view?usp=sharing",
+          "icon":"Safety.jpg"
+        },
+        {
+          "name": "Attractiveness",
+          "mapID": "internetofbuildings2021.0nrzvovd", 
+          "mapboxSrc": [
+            "Social_Economy_Attractiveness-dste3o"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "https://opendata-ajuntament.barcelona.cat/es/",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "To evaluate the attractiveness of spaces, we have analyzed their popularity, as well as the physical elements that usually attract people, such as green spaces and street furniture", 
+          "interpolation": true,
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                0,
+                "#a4c9df" 
+              ],
+              [
+                1,
+                "#164f73"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#a4c9df", 
+              "stop": "0"
+            },
+            {
+              "color": "#164f73",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Attractiveness Values"
+          },
+          "image": "image_name_in_shared_folder",
+          "icon":"Attractiveness.jpg"
+        },
+        {
+          "name": "Connectivity", 
+          "mapID": "internetofbuildings2021.0nrzvovd", 
+          "mapboxSrc": [
+            "Social_Economy_Attractiveness-dste3o"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "https://opendata-ajuntament.barcelona.cat/es/",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "For the analysis of connectivity, we identified pedestrian streets, which foster walking social interactions, in addition to the continuity of their routes, which stimulates the usage of them", 
+          "interpolation": true,
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                0,
+                "#a9d0ff" 
+              ],
+              [
+                1,
+                "#005766"
+              ]
+            ]
+          },
+          "legend":  [
+            {"color": "#a9d0ff", "stop": "0"},
+            {"color": "#005766", "stop": "100"}
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Connectivity Values"
+          },
+          "image": "image_name_in_shared_folder",
+          "icon":"Connectivity.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Clusters",
+      "sublayers": [
+        {
+          "name": "Cluster01", 
+          "mapID": "internetofbuildings2021.2ffp0spi", 
+          "mapboxSrc": [
+            "Social_Economy_Cluster01-5ag66y"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows the performance of the Cluster02", 
+          "interpolation": false,
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                1,
+                "#f3b95a" 
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#f3b95a", 
+              "stop": "1"
+            },
+            {
+              "color": "#f3b95a", 
+              "stop": "1"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Mean Values"
+          },
+          "image": "Spider Diagram Cluster01",
+          "icon":"Clusters-map.jpg"
+        },
+        {
+          "name": "Cluster02", 
+          "mapID": "internetofbuildings2021.du4qr81h", 
+          "mapboxSrc": [
+            "Social_Economy_Cluster02-029foy"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows the performance of the Cluster02", 
+          "interpolation": false,
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                2,
+                "#ed6a3f" 
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#ed6a3f", 
+              "stop": "2"
+            },
+            {
+              "color": "#ed6a3f", 
+              "stop": "2"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Mean Values"
+          },
+          "image": "Spider Diagram Cluster02",
+          "icon":"Clusters-map.jpg"
+        },
+        {
+          "name": "Cluster03", 
+          "mapID": "internetofbuildings2021.3p0ppxzs", 
+          "mapboxSrc": [
+            "Social_Economy_Cluster03-abikp4"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows the performance of the Cluster03", 
+          "interpolation": false,
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                3,
+                "#9f1e59" 
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#9f1e59", 
+              "stop": "3"
+            },
+            {
+              "color": "#9f1e59", 
+              "stop": "3"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Mean Values"
+          },
+          "image": "Spider Diagram Cluster03",
+          "icon":"Clusters-map.jpg"
+        },
+        {
+          "name": "Cluster04", 
+          "mapID": "internetofbuildings2021.2dzrxv8q", 
+          "mapboxSrc": [
+            "Social_Economy_Cluster04-cc8a1v"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows the performance of the Cluster04", 
+          "interpolation": false,
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                4,
+                "#5f0f40" 
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#5f0f40" , 
+              "stop": "4"
+            },
+            {
+              "color": "#5f0f40" , 
+              "stop": "4"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Mean Values"
+          },
+          "image": "Spider Diagram Cluster04",
+          "icon":"Clusters-map.jpg"
+        },
+        {
+          "name": "Cluster05", 
+          "mapID": "internetofbuildings2021.5v1yfl68", 
+          "mapboxSrc": [
+            "Social_Economy_Cluster05-azivd6"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows the performance of the Cluster05", 
+          "interpolation": false,
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                5,
+                "#445e89" 
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#445e89", 
+              "stop": "5"
+            },
+            {
+              "color": "#445e89", 
+              "stop": "5"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Attractiveness Values"
+          },
+          "image": "Spider Diagram Cluster05",
+          "icon":"Clusters-map.jpg"
+        },
+        {
+          "name": "Cluster06", 
+          "mapID": "internetofbuildings2021.3q8ox8b4", 
+          "mapboxSrc": [
+            "Social_Economy_Cluster06-0y5vzw"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows the performance of the Cluster06", 
+          "interpolation": false,
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                6,
+                "#02b2c8" 
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#02b2c8", 
+              "stop": "6"
+            },
+            {
+              "color": "#02b2c8", 
+              "stop": "6"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Mean Values"
+          },
+          "image": "Spider Diagram Cluster06",
+          "icon":"Clusters-map.jpg"
+        },
+        {
+          "name": "Clusters", 
+          "mapID": "internetofbuildings2021.2h7soqpt", 
+          "mapboxSrc": [
+            "Social_Economy_Clustersall-4ih1rr"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "N/A",
+          "scale": "detailed",            
+          "units": "N/A", 
+          "description": "The map shows all the Clusters", 
+          "interpolation": false, 
+          "paint": {
+            "property": "Cluster_ID", 
+            "stops": [
+              [
+                1,
+                "#f3b95a" 
+              ],
+              [
+                2,
+                "#ed6a3f" 
+              ],
+              [
+                3,
+                "#9f1e59" 
+              ],
+              [
+                4,
+                "#5f0f40" 
+              ],
+              [
+                5,
+                "#445e89" 
+              ],
+              [
+                6,
+                "#02b2c8"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#f3b95a", 
+              "stop": "0"
+            },
+            {
+              "color": "#ed6a3f",
+              "stop": "20"
+            },
+            {
+              "color": "#9f1e59",
+              "stop": "40"
+            },
+            {
+              "color": "#5f0f40",
+              "stop": "60"
+            },
+            {
+              "color": "#445e89",
+              "stop": "80"
+            },
+            {
+              "color": "#02b2c8",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": true, 
+            "text": "Cluster ID"
+          },
+          "image": "false",
+          "icon":"Clusters-map.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Footfall Data",
+      "sublayers": [
+        {
+          "name": "Footfall Analysis", 
+          "mapID": "internetofbuildings2021.1b8xbbni", 
+          "mapboxSrc": [
+            "Social_Economy_Footfall-d1yu4i"
+          ],
+          "type": "polygon", 
+          "representation": "2D",       
+          "source": "https://www.inatlas.com/",    
+          "scale": "detailed",          
+          "units": "N/A", 
+          "description": "The map shows the analysis of footfall data to understand the flow of the people for 7 days in the different sociable spaces",
+          "interpolation": true, 
+          "paint": {
+            "property": "Normalized_value", 
+            "stops": [
+              [
+                "0", 
+                "#ed593b" 
+              ],
+              [
+                "0.09", 
+                "#ed6a3f" 
+              ],
+              [
+                "0.18", 
+                "#ed8948" 
+              ],
+              [
+                "0.27", 
+                "#f0984d" 
+              ],
+              [
+                "0.45",
+                "#f8d062"
+              ],
+              [
+                "0.54",
+                "#b9be77"
+              ],
+              [
+                "0.63",
+                "#51a69b"
+              ],
+              [
+                "0.72",
+                "#51a69b"
+              ],
+              [
+                "0.81",
+                "#2c6e81"
+              ],
+              [
+                "1",
+                "#1e5570"
+              ]
+            ]
+          },
+          "legend": [
+            {
+              "color": "#ed593b", 
+              "stop": "0"
+            },
+            {
+              "color": "#ed6a3f",
+              "stop": "10"
+            },
+            {
+              "color": "#ed8948",
+              "stop": "20"
+            },
+            {
+              "color": "#f0984d",
+              "stop": "30"
+            },
+            {
+              "color": "#f3b95a",
+              "stop": "40"
+            },
+            {
+              "color": "#f8d062",
+              "stop": "50"
+            },
+            {
+              "color": "#b9be77",
+              "stop": "60"
+            },
+            {
+              "color": "#51a69b",
+              "stop": "70"
+            },
+            {
+              "color": "#51a69b",
+              "stop": "80"
+            },
+            {
+              "color": "#2c6e81",
+              "stop": "90"
+            },
+            {
+              "color": "#1e5570",
+              "stop": "100"
+            }
+          ],
+          "interactable": {
+            "status": false, 
+            "text": "false"
+          },
+          "image": "false",
+          "icon":"Footfall.png"
+        }
+      ]
+    }
+  ]
+}

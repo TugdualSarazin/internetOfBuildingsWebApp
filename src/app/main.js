@@ -125,7 +125,7 @@ function createParentLayer(datalayer, parent) {
   label.setAttribute("title", datalayer.description);
 
   let link = clone.querySelector("#layer-link");
-  if (datalayer.source) link.href = datalayer.source;
+  if (datalayer.source && datalayer.source!="N/A") link.href = datalayer.source;
   else link.classList.add("hidden")
 
   let sublayersParent = document.createElement("ul")
@@ -162,7 +162,7 @@ function addLayerToInterface(datalayer, parent) {
   label.setAttribute("title", datalayer.description);
   let link = clone.querySelector("#layer-link");
 
-  if (datalayer) link.href = datalayer.source;
+  if (datalayer.source && datalayer.source!="N/A")  link.href = datalayer.source;
   else link.classList.add("hidden")
   parent.appendChild(clone);
 
