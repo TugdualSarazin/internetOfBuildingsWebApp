@@ -140,7 +140,7 @@
                     ],
                     "interactable": {
                         "status": true,
-                        "text": "Land use value:"
+                        "text": "Land use values"
                     },
                     "icon": "extension_white_24dp.svg"
                 }

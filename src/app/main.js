@@ -15,6 +15,7 @@ export const dataLayersBtn = document.querySelector("#buttonLayerPanel");
 export const challengeBtn = document.querySelector("#buttonChallenge");
 export const methodologyBtn = document.querySelector("#buttonMethodology");
 export const proposalBtn = document.querySelector("#buttonProposal");
+export const menuBtn = document.querySelector("#menu-button");
 //***---- Datalayers ----***//
 const dataLayerPanel = document.getElementById("dataLayers");
 const legend = document.getElementById("legend");
@@ -46,6 +47,15 @@ proposalBtn.addEventListener("click", function () {
   closeAllOverlays()
   document.querySelector("#proposal").classList.remove("hidden");
 });
+
+menuBtn.addEventListener("click", function () {
+  var x = document.querySelector(".left-side-container");
+  if (x.style.visibility === "hidden") {
+    x.style.visibility = "visible";
+  } else {
+    x.style.visibility = "hidden";
+  }
+})
 //#endregion
 
 //#region DATA LAYERS
@@ -249,9 +259,9 @@ function createLegend(layer) {
  * Populate overlay data for cluster
  * @param {Object} cluster 
  */
-function generateOverlays(cluster) {  
+function generateOverlays(cluster) {
   const overlays = [...document.querySelectorAll('.overlay')]
-  for(let overlay of overlays){
+  for (let overlay of overlays) {
     //set text
     overlay.querySelector('#overlay-description').innerText = cluster[overlay.id].description;
     //set image
