@@ -111,6 +111,7 @@ map.on('load', function () {
 
     //add 3d buildings
     addVectorLayer(buildings, 'visible')
+    opacitySlider(document.querySelector('#opacity-slider'), document.querySelector('#opacity-slider-value'),buildings.uuid, 'fill-extrusion-opacity')
 });
 
 map.on('mousemove', function (e) {
@@ -565,6 +566,22 @@ function displayPopupOnClick(layer) {
     map.on('mouseleave', layer.uuid, function () {
         map.getCanvas().style.cursor = '';
     });
+}
+
+function opacitySlider(slider,sliderValue, layerId, property){
+    slider.addEventListener('input', function (e) {
+        // Adjust the layers opacity. layer here is arbitrary - this could
+        // be another layer name found in your style or a custom layer
+        // added on the fly using `addSource`.
+        map.setPaintProperty(
+        layerId,
+        property,
+        parseInt(e.target.value, 10) / 100
+        );
+         
+        // Value indicator
+        sliderValue.textContent = e.target.value + '%';
+        });
 }
 //#endregion
 
